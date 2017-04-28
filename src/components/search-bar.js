@@ -7,9 +7,21 @@ import React, { Component } from 'react'
 
 // A class based component is used whenever you want a component to have some sort of internal record keeping
 class SearchBar extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { term: ''}
+  }
 // every class must have a render function
+// always manipulate state with this.setState
   render() {
-    return <input onChange={(event) => console.log(event.target.value)} />
+    return (
+      <div>
+        <input
+          value={this.state.term}
+          onChange={event => this.setState({ term: event.target.value }) }/>
+      </div>
+    )
   }
 }
 
